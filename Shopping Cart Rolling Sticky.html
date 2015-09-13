@@ -1,0 +1,49 @@
+<!--Shopping Cart Rolling Sticky 的CSS設定-->
+<style type="text/css">  
+.fixed {    
+    position: fixed;     
+    top: 30px;    
+    margin-left: 83%;  
+    background-color: #fff ! important; 
+} 
+</style>
+
+<script >           //點餐單 - 使用 Shopping Cart Rolling Sticky
+$(document).ready(function() {  
+    // check where the shoppingcart-div is  
+    var offset = $('#shopping-cart').offset();  
+    $(window).scroll(function () {    
+        var scrollTop = $(window).scrollTop(); 
+        // check the visible top of the browser     
+        if (offset.top<scrollTop) {
+            $('#shopping-cart').addClass('fixed'); 
+        } else {
+            $('#shopping-cart').removeClass('fixed');   
+        }
+    }); 
+}); 
+</script>
+
+ <div class="span-3 last" id="shopping-cart">    <!-- 使用 Sticky -->
+        
+        <h3>
+        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>&nbsp;您 的 點 餐 單&nbsp;<i class="fa fa-coffee"></i></h3>
+        <hr>
+           <h4>
+           
+             <p><li><font color="Red">已加入的餐點 :</font>
+             </li>
+             <div id="div">
+             <ul id="ul">
+             </ul>
+             </div>
+             </p>
+ 
+           </h4>
+        <hr><footer></footer>
+        <form id="cart" action="" method="post">
+       <button input type="submit" class="btn btn-success">確認送出</button>
+        <button type="button" class="btn btn-success" onclick="del()">清除清單</button> 
+        </form>
+        <hr><footer></footer>   
+</div>              <!-- 使用 Sticky 結尾-->
